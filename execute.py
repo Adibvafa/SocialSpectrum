@@ -1,21 +1,13 @@
+import webbrowser
+import os
 
-import pyautogui
-import time
+# Search for Google Chrome and open the best matching app
+webbrowser.open("https://www.google.com/chrome/")
 
-# Press the Windows key to open the Start menu.
-pyautogui.press('win')
+# Search for AI in Google Images
+search_term = "ai"
+webbrowser.open(f"https://www.google.com/search?q={search_term}&tbm=isch")
 
-# Type the name of the application you want to open.
-pyautogui.write('google chrome')
-
-# Press the Enter key to open the application.
-pyautogui.press('enter')
-
-# Wait for the application to open.
-time.sleep(2)
-
-# Type the search term in the address bar.
-pyautogui.write('ai')
-
-# Press the Enter key to submit the search.
-pyautogui.press('enter')
+# Save the first image file as a.png in the desktop directory
+first_image = webbrowser.get_images(search_term)[0]
+os.system(f"wget {first_image} -O 'C:\\Users\\<username>\Desktop\\a.png'")
