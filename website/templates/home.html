@@ -1,0 +1,140 @@
+{% extends 'base.html' %} 
+{% block title %}Search Generator{% endblock %} 
+{% block content %}
+
+<div class="my-container">
+  <div class="row justify-content-center form-holder">
+    <div class="col-md-10 col-lg-8">
+      <h1 class="text-center my-h1" id="larger-text">SocialSpectrum</h1>
+      <h1 class="text-center my-h2">Social Skills Development Platform for Individuals with Autism</h1>
+
+      <form class="my-form-control">
+        <div class="about-text-q">What is Autism?</div>
+        <div class="about-text-a">Autism is a neurodevelopmental disorder characterized by challenges in social interaction, communication difficulties, and restricted and repetitive behaviors. It affects the way individuals perceive and process information, often leading to differences in how they understand and engage with the world around them.</div>
+        <div class="about-text-q"><br>How does SocialSpectrum Work?</div>
+        <div class="about-text-a">Click a button.</div>
+      </form>
+
+
+      <form class="my-form-control" method="POST">
+
+          <textarea
+            class="invisible"
+            id="query"
+            name="query"></textarea>
+
+        <div class="button-container">
+          <button type="button" class="btn btn-primary my-btn" onclick="autofillTextInput('communication')">Communication</button>
+          <button type="button" class="btn btn-primary my-btn" onclick="autofillTextInput('social')">Social Interactions</button>
+          <button type="button" class="btn btn-primary my-btn" onclick="autofillTextInput('emotions')">Emotions</button>
+        </div>
+
+        <div><h1 class="text-center my-h2"></h1>
+          <div class="text-center message-container"></div></div>
+      </form>
+
+    </div>
+  </div>
+  <!-- <img src="{{ url_for('static', filename='images/Spinner-1s-200px.png') }}" alt=""> -->
+</div>
+
+<script>
+    function autofillTextInput(value) {
+      const textInput = document.getElementById('query');
+      textInput.value = value;
+      textInput.form.submit();
+    }
+</script>
+<!--   
+<div class="progress">
+
+
+</div> -->
+
+<!-- would go below opening form tag -->
+<!-- <ul class="list-group list-group-flush" id="notes">
+</ul> -->
+
+<!--<script>-->
+<!--const communicationBtn = document.getElementById('communication-btn');-->
+<!--const socialBtn = document.getElementById('social-btn');-->
+<!--const emotionsBtn = document.getElementById('emotions-btn');-->
+
+<!--// Add event listeners to the buttons-->
+<!--communicationBtn.addEventListener('click', handleButtonClick);-->
+<!--socialBtn.addEventListener('click', handleButtonClick);-->
+<!--emotionsBtn.addEventListener('click', handleButtonClick);-->
+
+<!--// Define function to handle button click-->
+<!--function handleButtonClick(event) {-->
+<!--  const query = event.target.dataset.query;-->
+
+<!--  // Send the query to the server using AJAX-->
+<!--  const xhr = new XMLHttpRequest();-->
+<!--  xhr.open('POST', '/', true);-->
+<!--  xhr.setRequestHeader('Content-Type', 'application/json');-->
+
+<!--  xhr.onreadystatechange = function () {-->
+<!--    if (xhr.readyState === XMLHttpRequest.DONE) {-->
+<!--      if (xhr.status === 200) {-->
+<!--        // Handle the response from the server-->
+<!--        const response = JSON.parse(xhr.responseText);-->
+<!--        console.log('Response:', response);-->
+<!--        // Add your desired code here to process the response from the server-->
+<!--      } else {-->
+<!--        console.error('Request failed with status:', xhr.status);-->
+<!--      }-->
+<!--    }-->
+<!--  };-->
+
+<!--  // Send the query as JSON data to the server-->
+<!--  xhr.send(JSON.stringify({ query: query }));-->
+<!--}-->
+<!--</script>-->
+<!--<script>-->
+<!--  document.addEventListener('DOMContentLoaded', function() {-->
+<!--    var buttons = document.getElementsByClassName('my-btn');-->
+<!--    for (var i = 0; i < buttons.length; i++) {-->
+<!--      buttons[i].addEventListener('click', function(event) {-->
+<!--        var query = event.target.getAttribute('data-query');-->
+<!--        var form = document.querySelector('.my-form-control');-->
+<!--        var formData = new FormData(form);-->
+<!--        formData.append('associated-label', query);-->
+
+<!--        fetch(form.action, {-->
+<!--          method: form.method,-->
+<!--          body: JSON.stringify(Object.fromEntries(formData)),-->
+<!--          headers: {-->
+<!--            'Content-Type': 'application/json',-->
+<!--          },-->
+<!--        })-->
+<!--          .then(function(response) {-->
+<!--            if (response.ok) {-->
+<!--              return response.json();-->
+<!--            } else {-->
+<!--              throw new Error('Bad Request');-->
+<!--            }-->
+<!--          })-->
+<!--          .then(function(data) {-->
+<!--            // Handle the response data-->
+<!--          })-->
+<!--          .catch(function(error) {-->
+<!--            console.error(error);-->
+<!--          });-->
+<!--      });-->
+<!--    }-->
+<!--  });-->
+<!--</script>-->
+
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script>
+  $(document).ready(function () {
+    $(".my-btn").click(function () {
+      // display the message
+      $(".message-container").text("Loading... (Estimated Time: 45 Seconds)");
+    });
+  });
+</script>
+{% endblock %}
+<!-- this goes in between the li for notes -->
+<!-- <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close" onClick="deleteNote({{ note.id }})"></button> -->
