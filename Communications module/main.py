@@ -226,7 +226,7 @@ parametersMCQ = {
 
 # This model will give a 4 choice MCQ when "question" is the input and will give feedback depending on the letter the user chooses
 # I would suggest making the quiz button just input "question" into this model
-chat = chat_model.start_chat(
+chatMCQ = chat_model.start_chat(
     context="""A child just finished reading a lesson and now must answer a few situational multiple choice questions. Questions must be tailored towards children ages 5-12.
 Based on this lesson generate a single situational multiple choice question for kids with a clear correct answer: """ + lesson,
     examples=[
@@ -266,5 +266,5 @@ Overall, you did a great job on this question!"""
     ]
 )
 # Once the quiz button is pressed input "question"
-responseMCQ = chat.send_message("""question""", **parametersMCQ)
+responseMCQ = chatMCQ.send_message("""question""", **parametersMCQ)
 
