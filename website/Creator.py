@@ -11,7 +11,6 @@ from PIL import Image
 from io import BytesIO
 import openai
 
-openai.api_key = os.getenv("OPENAI")
 
 from vertexai.language_models import TextGenerationModel
 
@@ -20,7 +19,6 @@ from dotenv import load_dotenv
 load_dotenv()
 
 vertexai.init(project="ghc-015", location="us-central1")
-os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
 
 def Create_Images(paragraph_list):
@@ -83,14 +81,8 @@ def Create_Course_Emotion(user_input):
     titles = [a.strip() for a in response[1::2]]
     texts = [a.strip().replace('*', '\n') for a in response[2::2]]
 
-    print(response)
-
-    url = "https://adibvafa.github.io/Portfolio/assets/images/Adibvafa.png"
-    images = [url, url, url, url, url]
-    print(images)
-
     paragraphs = [f"{titles[i]}:{texts[i]}" for i in range(len(titles))]
-    print(len(paragraphs))
+    images = Create_Images(paragraphs)
 
     return paragraphs, images
 
@@ -110,13 +102,7 @@ def Create_Course_Communication(user_input):
     titles = [a[a.find('.') + 2:].strip() for a in response[1::2]]
     texts = [a.strip().replace('*', '\n') for a in response[2::2]]
 
-    print(response)
-
-    url = "https://adibvafa.github.io/Portfolio/assets/images/Adibvafa.png"
-    images = [url, url, url, url, url]
-    print(images)
-
     paragraphs = [f"{titles[i]}:{texts[i]}" for i in range(len(titles))]
-    print(len(paragraphs))
+    images = Create_Images(paragraphs)
 
     return paragraphs, images
