@@ -10,10 +10,10 @@ import requests
 from PIL import Image
 from io import BytesIO
 import openai
+openai.api_key = os.getenv("OPENAI_API_KEY")
 
 
 from vertexai.language_models import TextGenerationModel
-
 from dotenv import load_dotenv
 
 load_dotenv()
