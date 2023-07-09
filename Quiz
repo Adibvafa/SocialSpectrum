@@ -1,1 +1,133 @@
+questions = [
+    "Autism Spectrum Disorder (ASD) affects a significant portion of the population. \nTrue/False?",
+    "Why is understanding and recognizing emotions in individuals with ASD vital?\n\
+    a) It leads to social isolation\n\
+    b) It enhances social skills and connections\n\
+    c) It benefits only caregivers and professionals\n\
+    d) It has no impact on well-being",
+    "What is one challenge that individuals with ASD face regarding emotions? \n\
+    a) Overexpression of emotions \n\
+    b) Difficulty perceiving and interpreting emotions \n\
+    c) Emotional instability \n\
+    d) Hyperawareness of emotions",
+    "Which of the following is a strategy to help individuals with ASD recognize emotions?\n\
+    a) Avoid discussing emotions\n\
+    b) Suppress emotions to avoid discomfort\n\
+    c) Emotion pointing and naming\n\
+    d) Discourage emotional recognition in media",
+    "How can sensation description aid in helping individuals with ASD understand emotions?\n\
+    a) By ignoring physical sensations\n\
+    b) By dismissing the relevance of physical sensations\n\
+    c) By encouraging the description of physical sensations\n\
+    d) By minimizing the significance of physical sensations",
+    "What approach can be used to teach emotional recognition in individuals with ASD using movies or shows?\n\
+    a) Emotional expression suppression\n\
+    b) Emotional recognition in media\n\
+    c) Emotional detachment from characters\n\
+    d) Emotional avoidance in media",
+    "Which visual tool can be used to help individuals with ASD gauge and communicate emotional intensity?\n\
+    a) Ladder pictures or thermometers\n\
+    b) Auditory cues\n\
+    c) Taste and smell recognition\n\
+    d) None of the above",
+    "What is one technique to help ASD individuals calm down from strong emotions?\n\
+    a) Encouraging emotional outbursts\n\
+    b) Ignoring their emotions\n\
+    c) Going for a walk or finding a quiet place to sit\n\
+    d) Avoiding any form of support",
+    "Which of the following relaxation exercises can help ASD individuals manage their emotions?\n\
+    a) Counting to 20\n\
+    b) Taking 10 deep breaths\n\
+    c) Focusing on negative thoughts\n\
+    d) Avoiding relaxation techniques",
+    "How can sensory stimulation assist ASD individuals in managing their emotions?\n\
+    a) Avoiding sensory experiences\n\
+    b) Engaging in sensory-seeking behaviors\n\
+    c) Squeezing a cushion or using fidget toys\n\
+    d) Ignoring sensory needs",
+    "What is one suggested replacement behavior for sensory-seeking behavior?\n\
+    a) Rocking in a chair instead of picking skin\n\
+    b) Avoiding all sensory stimulation\n\
+    c) Encouraging the escalation of sensory needs\n\
+    d) Ignoring the need for sensory input",
+    "What can individuals do during break time to manage their emotions?\n\
+    a) Engage in intense physical activities\n\
+    b) Sit in a crowded and noisy area\n\
+    c) Get a drink of water or find a quiet place to sit\n\
+    d) Avoid taking breaks altogether",
+    "What is one activity recommended for individuals to take a brain break and manage their emotions?\n\
+    a) Avoiding any form of activity\n\
+    b) Listening to favorite music or engaging in special interests\n\
+    c) Ignoring personal interests and hobbies\n\
+    d) Reading a book about unrelated topics",
+    "How can physical activity help ASD individuals manage their emotions?\n\
+    a) By avoiding physical activity altogether\n\
+    b) By engaging in sedentary activities\n\
+    c) By going for a short run or engaging in physical exercises\n\
+    d) By ignoring the need for physical activity",
+    "Supporting emotional awareness in individuals with ASD enhances:\n\
+    a) Social interactions\n\
+    b) Academic performance\n\
+    c) Physical health\n\
+    d) Financial success",
+    "Empowering individuals with ASD to understand their emotions enables:\n\
+    a) Effective communication\n\
+    b) Enhanced artistic abilities\n\
+    c) Reduced sensory sensitivity\n\
+    d) Increased physical strength",
+    "Promoting emotional understanding in society fosters:\n\
+    a) Emotional detachment\n\
+    b) Social exclusion\n\
+    c) Well-being and inclusion\n\
+    d) Emotional repression",
+    "The content highlights the importance of valuing:\n\
+    a) Emotional suppression\n\
+    b) Emotional isolation\n\
+    c) Diverse emotions\n\
+    d) Emotional avoidance",
+    "Recognizing emotional needs in individuals with ASD benefits:\n\
+    a) Only caregivers\n\
+    b) Caregivers, educators, and professionals\n\
+    c) Society at large\n\
+    d) No one in particular",
+    "Understanding ASD emotions promotes:\n\
+    a) Empathy and acceptance\n\
+    b) Emotional ignorance\n\
+    c) Isolation and exclusion\n\
+    d) Emotional insensitivity"
+]
 
+answers = [
+    "True",
+    "b) It enhances social skills and connections",
+    "b) Difficulty perceiving and interpreting emotions"
+    "c) Emotion pointing and naming",
+    "c) By encouraging the description of physical sensations",
+    "b) Emotional recognition in media",
+    "a) Ladder pictures or thermometers",
+    "c) Going for a walk or finding a quiet place to sit",
+    "b) Taking 10 deep breaths",
+    "c) Squeezing a cushion or using fidget toys",
+    "a) Rocking in a chair instead of picking skin",
+    "c) Get a drink of water or find a quiet place to sit",
+    "b) Listening to favorite music or engaging in special interests",
+    "c) By going for a short run or engaging in physical exercises",
+    "a) Social interactions",
+    "a) Effective communication",
+    "c) Well-being and inclusion",
+    "c) Diverse emotions",
+    "b) Caregivers, educators, and professionals",
+    "a) Empathy and acceptance",
+]
+
+def quiz():
+    score = 0
+    for i in range(len(questions)):
+        print(f"Question {i+1}: {questions[i]}")
+        answer = input("Your answer: ")
+        print(f"Answer: {answers[i]}")
+        if answer.lower() == answers[i].lower().split(")")[0]:
+            score += 1
+        print()
+
+    print(f"Quiz completed! You scored {score}/{len(questions)}.")
