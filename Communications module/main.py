@@ -4,10 +4,10 @@ from vertexai.preview.language_models import ChatModel, InputOutputTextPair
 
 # FOR CHAT BOT (MULTIPLE POSSIBLE PERSONALITIES JUST ASK TO SWITCH TO WHICH EVER) ASK FOR FEEDBACK ANYTIME______________
 
-# This model starts as one of 3 personalities, Bob, Sarah and Jonathan and the user can switch between them by inputing "switch to"
+# This model starts as one of 3 personalities, Bob, Sarah and Jonathan and the user can switch between them by inputting "switch to"
 vertexai.init(project="exalted-cogency-392223", location="us-central1")
 chat_model = ChatModel.from_pretrained("chat-bison@001")
-parameters = {
+parametersCHAT = {
     "temperature": 0.5,
     "max_output_tokens": 256,
     "top_p": 0.8,
@@ -35,13 +35,13 @@ Jonathan: Hi, I\'m Jonathan. I noticed you\'ve been doing something interesting,
         )
     ]
 )
-responseCHAT = chat.send_message("""Hello!""", **parameters)
-print(f"Response from Model: {response.text}")
+responseCHAT = chat.send_message("""Hello!""", **parametersCHAT)
+print(f"Response from Model: {responseCHAT.text}")
 
 # FOR LESSON ___________________________________________________________________________________________________________
 
 vertexai.init(project="exalted-cogency-392223", location="us-central1")
-parameters = {
+parametersLESSON = {
     "temperature": 0.2,
     "max_output_tokens": 701,
     "top_p": 0.8,
@@ -211,7 +211,7 @@ input: Generate a very short lesson on the following topic:  learning how to con
 Separate new lines (including titles) with \"%\" repeated 3 times
 output:
 """,
-    **parameters
+    **parametersLESSON
 )
 print(f"Response from Model: {lesson.text}")
 
