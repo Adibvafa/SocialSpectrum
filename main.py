@@ -9,8 +9,8 @@ part1_content = "Autism Spectrum Disorder (ASD) affects a significant portion of
                 "understanding fosters well-being and inclusion, valuing diverse emotions and supporting every" \
                 " individual, regardless of neurodiversity."
 
-part2_title = "\033[0mWays of helping ASD individuals to learn about their emotions -- Everyday Interactions and Emotions Tool\033[0m"
-part2_content = "Autistic individuals often struggle to recognize and understand emotions in themselves and others, " \
+part2_title = "\033[0mWays of helping ASD individuals to learn about their emotions\033[0m"
+part2_content = "1. Everyday Interactions and Emotions Tool: Autistic individuals often struggle to recognize and understand emotions in themselves and others, " \
                 "especially when upset. Here are some helpful approaches:\n1.	Emotion Pointing: Clearly identify and " \
                 "name emotions, starting with basic ones like happiness, fear, and anger, and gradually progress to " \
                 "more complex emotions like jealousy or frustration. For example, say: I can see you're frustrated. " \
