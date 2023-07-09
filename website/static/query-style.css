@@ -30,13 +30,15 @@
 #messages-display {
   /* background: #9DAAB4; */
   background: #ffffff;
-  margin: 1.5em 1.5em 0.5em;
+  margin: 1.5em 1.5em;
+  margin-bottom: 0.5em;
   border-radius: 2%;
   flex-basis: 85%;
   overflow-y: scroll;
 }
 
 #input-area {
+  margin-bottom: -100px;
   flex-basis: 15%;
   display: flex;
   flex-direction: column;
@@ -44,7 +46,7 @@
 }
 
 #button-area {
-  flex-basis: 50%;
+  flex-basis: 40%;
   /* background: #dec9c9; */
   display: flex;
   justify-content: space-evenly;
@@ -121,9 +123,9 @@
 #message-box {
   flex-basis: 50%;
   flex: 0 1 42px;
-  width: 85%;
+  width: 92%;
   background: #fff;
-  margin: 2px auto;
+  margin: 2px auto 10px;
   /*-webkit-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
   -moz-box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);
   box-shadow: 0px 1px 1px 1px rgba(0,0,0,0.4);*/
@@ -150,9 +152,6 @@
   padding-left: 10px;
   width: 100%;
   color: #444;
-}
-textarea:focus:-webkit-placeholder {
-  color: transparent;
 }
 
 #message-submit {

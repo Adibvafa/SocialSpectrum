@@ -11,7 +11,7 @@ from PIL import Image
 from io import BytesIO
 import openai
 
-openai.api_key = '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'
+openai.api_key = os.getenv("OPENAI")
 
 from vertexai.language_models import TextGenerationModel
 
@@ -23,26 +23,100 @@ vertexai.init(project="ghc-015", location="us-central1")
 os.getenv("GOOGLE_APPLICATION_CREDENTIALS")
 
 
+def Create_Images(paragraph_list):
+
+    indexes = [0, -3]
+    images_list = []
+
+    for i in indexes:
+        pic_prompt = 'Artistic realistic illustration of ' + \
+                     paragraph_list[i]
+
+        image_object = openai.Image.create(
+            prompt=pic_prompt[:200],
+            n=1,
+            size="256x256")
+
+        image_url = image_object['data'][0]['url']
+        images_list.append(image_url)
+
+    return images_list
+
+
 def Create_Course_Social(user_input):
-    prompt = """Explain social norms""".strip()
+    social_prompt = """
+    You are teaching a lesson to Autism kids who have trouble with social norms. Write 5 different paragraphs with headers about different important social norms and situations followed by the text about how to deal with that specific social situation. 
+    """.strip()
 
     parameters = {
-        "temperature": 0.2,
-        "max_output_tokens": 10,
+        "temperature": 0.5,
+        "max_output_tokens": 1024,
         "top_p": 0.8,
-        "top_k": 40}
+        "top_k": 10}
 
     model = TextGenerationModel.from_pretrained("text-bison@001")
-    response = model.predict(prompt, **parameters)
+    response = model.predict(social_prompt, **parameters).text.split("**")
+
+    titles = [a[a.find('.') + 2:].strip() for a in response[1::2]]
+    texts = [a.strip().replace('*', '\n') for a in response[2::2]]
+
+    paragraphs = [f"{titles[i]}:{texts[i]}" for i in range(len(titles))]
+    images = Create_Images(paragraphs)
+
+    return paragraphs, images
+
+
+def Create_Course_Emotion(user_input):
+    emotion_prompt = """
+    You are teaching a lesson to Autism kids who have trouble with emotions. Write 5 different paragraphs with headers about distinct specific emotions obstacles autism kids encounter followed by the text about how to deal with that specific emotional situation.
+    """.strip()
+
+    parameters = {
+        "temperature": 0.5,
+        "max_output_tokens": 1024,
+        "top_p": 0.8,
+        "top_k": 10}
+
+    model = TextGenerationModel.from_pretrained("text-bison@001")
+    response = model.predict(emotion_prompt, **parameters).text.split("**")
+
+    titles = [a.strip() for a in response[1::2]]
+    texts = [a.strip().replace('*', '\n') for a in response[2::2]]
+
     print(response)
 
     url = "https://adibvafa.github.io/Portfolio/assets/images/Adibvafa.png"
     images = [url, url, url, url, url]
     print(images)
 
-    paragraphs = [f"Paragraph1: {response.text[10:-3]})", f"Paragraph1: {response.text[10:-3]})",
-                  f"Paragraph1: {response.text[10:-3]})", f"Paragraph1: {response.text[10:-3]})",
-                  f"Paragraph1: {response.text[10:-3]})"]
+    paragraphs = [f"{titles[i]}:{texts[i]}" for i in range(len(titles))]
+    print(len(paragraphs))
+
+    return paragraphs, images
+
+
+def Create_Course_Communication(user_input):
+    comm_prompt = """You are teaching a lesson to Autism kids who have trouble with communication. Write 5 different paragraphs with headers about different important communication skills followed by the text about how to implement and communicate effectively.s""".strip()
+
+    parameters = {
+        "temperature": 0.5,
+        "max_output_tokens": 1024,
+        "top_p": 0.8,
+        "top_k": 25}
+
+    model = TextGenerationModel.from_pretrained("text-bison@001")
+    response = model.predict(comm_prompt, **parameters).text.split("**")
+
+    titles = [a[a.find('.') + 2:].strip() for a in response[1::2]]
+    texts = [a.strip().replace('*', '\n') for a in response[2::2]]
+
+    print(response)
+
+    url = "https://adibvafa.github.io/Portfolio/assets/images/Adibvafa.png"
+    images = [url, url, url, url, url]
+    print(images)
+
+    paragraphs = [f"{titles[i]}:{texts[i]}" for i in range(len(titles))]
     print(len(paragraphs))
 
     return paragraphs, images
