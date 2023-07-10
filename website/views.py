@@ -8,6 +8,9 @@ from .Chat import Create_Model, Answer_Question
 from .Summarize import Create_Summary
 import random
 
+from dotenv import load_dotenv
+
+load_dotenv()
 
 prompt = "default"
 courseParagraphs = []
@@ -15,6 +18,7 @@ courseImages = []
 courseHeaders = []
 
 views = Blueprint('views', __name__)
+
 
 @views.route('/', methods=['GET', 'POST'])
 def home():
@@ -55,7 +59,8 @@ def home():
 
 @views.route('/query', methods=['GET', 'POST'])
 def query():
-    return render_template('query.html', prompt=prompt, courseParagraphs=courseParagraphs, courseImages=courseImages, courseHeaders=courseHeaders)
+    return render_template('query.html', prompt=prompt, courseParagraphs=courseParagraphs, courseImages=courseImages,
+                           courseHeaders=courseHeaders)
 
 
 @views.route('/generate-response', methods=['POST'])
@@ -66,21 +71,14 @@ def generate_response():
     return jsonify({"resp": Answer_Question(chat, parametersCHAT, lesson_query, promptText)})
 
 
-@views.route('/generate-summary', methods=['POST'])
-def generate_summary():
-    # prompt = json.loads(request.data)
-    # promptText = prompt['text']
-    # print(promptText)
-    return jsonify({"resp": Create_Summary(courseParagraphs)})
-
-
 @views.route('/generate-quiz', methods=['POST'])
 def generate_quiz():
-    # prompt = json.loads(request.data)
-    # promptText = prompt['text']
-    # print(promptText)
-
-    # return jsonify({"question": "What are the first 10 digits of pi?", "answer": "3.141592653", "reference": 3})
+    print(1)
     question = Get_Question(lesson_query, courseParagraphs)
     print(question)
     return jsonify({"question": question["question"], "reference": question["reference"], "answer": question["answer"]})
+
+
+@views.route('/generate-summary', methods=['POST'])
+def generate_summary():
+    return jsonify({"resp": Create_Summary(courseParagraphs)})

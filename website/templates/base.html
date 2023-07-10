@@ -19,12 +19,12 @@
     <link
       rel="stylesheet"
       type="text/css"
-      href="../static/home-style.css"
+      href="{{ url_for('static', filename='home-style.css') }}"
     />
     <link
       rel="stylesheet"
       type="text/css"
-      href="../static/query-style.css"
+      href="{{ url_for('static', filename='query-style.css') }}"
     />
     <title>{% block title %}Home{% endblock %}</title>
   </head>
@@ -104,7 +104,7 @@
 
     <script
       type="module"
-      src="../static/app.js"
+      src="{{ url_for('static', filename='app.js') }}"
     ></script>
   </body>
 </html>

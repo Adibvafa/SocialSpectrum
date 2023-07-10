@@ -15,25 +15,50 @@ openai.api_key = os.getenv("OPENAI_API_KEY")
 
 from vertexai.language_models import TextGenerationModel
 from dotenv import load_dotenv
-
 load_dotenv()
 
-vertexai.init(project="ghc-015", location="us-central1")
+vertexai.init(project="ghc-022", location="us-central1")
 
 
 def Create_Images(paragraph_list):
+
+    # indexes = [0, -3]
+    # images_list = []
+    #
+    # for i in indexes:
+    #     pic_prompt = 'Artistic realistic illustration of ' + \
+    #                  paragraph_list[i]
+    #
+    #     image_object = openai.Image.create(
+    #         prompt=pic_prompt[:350],
+    #         n=1,
+    #         size="512x512")
+    #
+    #     image_url = image_object['data'][0]['url']
+    #     images_list.append(image_url)
 
     indexes = [0, -3]
     images_list = []
 
     for i in indexes:
-        pic_prompt = 'Artistic realistic illustration of ' + \
+        pic_prompt = 'Describe artistic realistic illustration of ' + \
                      paragraph_list[i]
+        pic_responses = openai.Completion.create(
+            model="text-davinci-003",
+            prompt=pic_prompt,
+            temperature=0.15,
+            max_tokens=300,
+            top_p=0.88,
+            best_of=1,
+            frequency_penalty=0.2,
+            presence_penalty=0)
+
+        pic_response = pic_responses['choices'][0]['text'].strip()
 
         image_object = openai.Image.create(
-            prompt=pic_prompt[:200],
+            prompt=pic_response,
             n=1,
-            size="256x256")
+            size="512x512")
 
         image_url = image_object['data'][0]['url']
         images_list.append(image_url)
