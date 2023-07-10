@@ -3,6 +3,8 @@ An AI-powered education platform helping individuals with Autism Spectrum Disord
 SocialSpectrum provides a personalized, immersive learning experience that equips users with essential social skills, emotional understanding, and effective communication techniques.<br><br>
 Through visual lessons, AI chat mentor, and adaptive quizzes, SocialSpectrum empowers individuals with ASD to confidently navigate social situations, interpret social cues, and develop a deeper understanding of emotions, all within a private, inclusive environment.<br>
 
+![SocialSpectrum](https://github.com/Adibvafa/SocialSpectrum/assets/90617686/e70af63a-4158-45d9-aeb9-5f679cb95b8d)
+
 
 ## Steps to run the project locally:
 1. Download my files (you can git clone it but normal download works just fine)<br><br>
