@@ -1,10 +1,12 @@
 # SocialSpectrum
-An AI-powered education platform helping individuals with Autism Spectrum Disorder (ASD) master social interaction.<br><br>
-SocialSpectrum provides a personalized, immersive learning experience that equips users with essential social skills, emotional understanding, and effective communication techniques.<br><br>
-Through visual lessons, AI chat mentor, and adaptive quizzes, SocialSpectrum empowers individuals with ASD to confidently navigate social situations, interpret social cues, and develop a deeper understanding of emotions, all within a private, inclusive environment.<br>
+
+[Google Cloud - Vertex AI Hackathon - Lablab.ai](https://lablab.ai/event/google-vertex-ai-hackathon/the-cyber-savvy-ninjas/socialspectrum)
 
 ![SocialSpectrum](https://github.com/Adibvafa/SocialSpectrum/assets/90617686/e70af63a-4158-45d9-aeb9-5f679cb95b8d)
 
+## About
+SocialSpectrum is an AI-powered education platform helping individuals with Autism Spectrum Disorder (ASD) master social interaction.<br><br>
+SocialSpectrum provides a personalized, immersive learning experience that equips users with essential social skills, emotional understanding, and effective communication techniques. Through visual lessons, AI chat mentor, and adaptive quizzes, SocialSpectrum empowers individuals with ASD to confidently navigate social situations, interpret social cues, and develop a deeper understanding of emotions, all within a private, inclusive environment.<br>
 
 ## Steps to run the project locally:
 1. Download my files (you can git clone it but normal download works just fine)<br><br>
