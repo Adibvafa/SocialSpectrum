@@ -1,6 +1,6 @@
 # SocialSpectrum
 
-[Google Cloud - Vertex AI Hackathon - Lablab.ai](https://lablab.ai/event/google-vertex-ai-hackathon/the-cyber-savvy-ninjas/socialspectrum)
+[Google Cloud - Vertex AI Global Hackathon - Lablab.ai](https://lablab.ai/event/google-vertex-ai-hackathon/the-cyber-savvy-ninjas/socialspectrum)
 
 ![SocialSpectrum](https://github.com/Adibvafa/SocialSpectrum/assets/90617686/e70af63a-4158-45d9-aeb9-5f679cb95b8d)
 
